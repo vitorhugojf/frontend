@@ -1,18 +1,36 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h1>This is an home page</h1>
+    <v-btn @click="toast('coé','success')">Show success Toast</v-btn>
+    <v-btn @click="toast('coé','info')">Show info Toast</v-btn>
+    <v-btn @click="toast('coé','warning')">Show warning Toast</v-btn>
+    <v-btn @click="toast('coé','error', 'fas fa-exclamation-triangle')">Show error Toast</v-btn>
+    <v-btn @click="toast('coé')">Show Toast</v-btn>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
-  name: "home",
-  components: {
-    HelloWorld
+  name: "Home",
+  data: () => ({
+    //
+  }),
+  methods: {
+    toast(message, type = "info", icon = true) {
+      this.$toast(message, {
+        type: type,
+        position: "top-center",
+        timeout: 5000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        hideCloseButton: true,
+        hideProgressBar: false,
+        icon: icon
+      });
+    }
   }
 };
 </script>
