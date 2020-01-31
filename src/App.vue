@@ -1,45 +1,12 @@
 <template>
-  <v-app>
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn href="/signin" target="_blank" text>
-        <span class="mr-2">Sign In</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-content>
+  <div id="app">
+    <router-view name="header" />
+    <div class="wrapper">
       <router-view />
-    </v-content>
-  </v-app>
+    </div>
+    <router-view name="footer" />
+  </div>
 </template>
-
 <script>
-export default {
-  name: "App",
-  data: () => ({
-    //debugger; // eslint-disable-line
-  })
-};
+export default {};
 </script>

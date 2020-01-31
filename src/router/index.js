@@ -1,36 +1,60 @@
 import Vue from "vue";
-import VueRouter from "vue-router";
+import Router from "vue-router";
 
-Vue.use(VueRouter);
+import AppHeader from "../layout/AppHeader.vue";
+import AppFooter from "../layout/AppFooter.vue";
 
-const routes = [
-  {
-    path: "/",
-    name: "home",
-    component: () => import("../views/Home.vue")
-  },
-  {
-    path: "/about",
-    name: "about",
-    component: () => import("../views/About.vue")
-  },
-  {
-    path: "/signin",
-    name: "signin",
-    component: () => import("../views/Signin.vue")
-  },
-  {
-    path: "/signup",
-    name: "signup",
-    component: () => import("../views/Signup.vue")
-  },
-  { path: "*", redirect: "/" }
-];
+Vue.use(Router);
 
-const router = new VueRouter({
+export default new Router({
   mode: "history",
-  base: process.env.BASE_URL,
-  routes
+  linkExactActiveClass: "active",
+  routes: [
+    {
+      path: "/index",
+      name: "index",
+      components: { header: AppHeader, default: () => import(/* webpackChunkName: "Index" */ "../pages/Index.vue"), footer: AppFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/landing",
+      name: "landing",
+      components: { header: AppHeader, default: () => import(/* webpackChunkName: "Landing" */ "../pages/Landing.vue"), footer: AppFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "/login",
+      name: "login",
+      components: { header: AppHeader, default: () => import(/* webpackChunkName: "Login" */ "../pages/Login.vue"), footer: AppFooter },
+      props: {
+        header: { colorOnScroll: 400 }
+      }
+    },
+    {
+      path: "/profile",
+      name: "profile",
+      components: { header: AppHeader, default: () => import(/* webpackChunkName: "Profile" */ "../pages/Profile.vue"), footer: AppFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: "black" }
+      }
+    },
+    {
+      path: "*",
+      redirect: "index"
+    }
+  ],
+  scrollBehavior: to => {
+    if (to.hash) {
+      return { selector: to.hash };
+    } else {
+      return { x: 0, y: 0 };
+    }
+  }
 });
-
-export default router;
