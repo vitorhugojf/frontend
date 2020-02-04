@@ -29,27 +29,43 @@
               </a>
             </div>
           </template>
+          
           <template>
             <fg-input
               class="no-border"
-              placeholder="First Name..."
+              placeholder="Nome..."
+              v-model="$store.state.register.signUpForm.firstName"
               addon-left-icon="now-ui-icons users_circle-08"
-            >
-            </fg-input>
-
+            ></fg-input>
             <fg-input
               class="no-border"
-              placeholder="Last Name..."
+              placeholder="Sobrenome..."
+              v-model="$store.state.register.signUpForm.lastName"
               addon-left-icon="now-ui-icons text_caps-small"
-            >
-            </fg-input>
+            ></fg-input>
 
             <fg-input
               class="no-border"
-              placeholder="Email"
+              placeholder="Email..."
+              v-model="$store.state.register.signUpForm.email"
               addon-left-icon="now-ui-icons ui-1_email-85"
-            >
-            </fg-input>
+            ></fg-input>
+
+            <fg-input
+              class="no-border"
+              placeholder="Senha..."
+              type="password"
+              v-model="$store.state.register.signUpForm.password"
+              addon-left-icon="now-ui-icons objects_key-25"
+            ></fg-input>
+
+            <fg-input
+              class="no-border"
+              type="password"
+              placeholder="Confirme sua senha..."
+              v-model="$store.state.register.signUpForm.confirmPassword"
+              addon-left-icon="now-ui-icons objects_key-25"
+            ></fg-input>
           </template>
           <div class="card-footer text-center">
             <n-button type="neutral" round size="lg">Get Started</n-button>

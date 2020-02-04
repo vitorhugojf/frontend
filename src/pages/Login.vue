@@ -12,13 +12,13 @@
             <fg-input
               class="no-border input-lg"
               addon-left-icon="now-ui-icons users_circle-08"
-              placeholder="Email ou Usuário"
+              placeholder="Email..."
             ></fg-input>
 
             <fg-input
               class="no-border input-lg"
               addon-left-icon="now-ui-icons text_caps-small"
-              placeholder="Senha"
+              placeholder="Senha..."
             ></fg-input>
 
             <div class="card-footer text-center">
@@ -71,6 +71,7 @@ export default {
   }),
   methods: {
     register() {
+      var form = this.$store.state.register.signUpForm;
       this.$router.push("profile");
     }
   }

@@ -26,6 +26,7 @@
           :value="value"
           v-on="listeners"
           v-bind="$attrs"
+          :type="type"
           class="form-control"
           :class="[{ valid: value && !error }, inputClasses]"
           aria-describedby="addon-right addon-left"
@@ -62,6 +63,7 @@ export default {
     required: Boolean,
     label: String,
     error: String,
+    type: String,
     labelClasses: String,
     inputClasses: String,
     value: {
