@@ -3,7 +3,6 @@
     class="form-group"
     :class="[
       { 'input-group': hasIcon },
-      { 'has-danger': error },
       { 'input-group-focus': focused },
       { 'has-label': label || $slots.label }
     ]"
@@ -28,7 +27,7 @@
           v-bind="$attrs"
           :type="type"
           class="form-control"
-          :class="[{ valid: value && !error }, inputClasses]"
+          :class="[{ valid: value }, inputClasses]"
           aria-describedby="addon-right addon-left"
         />
       </slot>
@@ -40,18 +39,6 @@
           <i class="input-group-text" :class="addonRightIcon"></i>
         </span>
       </slot>
-
-      <slot name="infoBlock"></slot>
-      <slot name="helpBlock">
-        <div
-          class="text-danger invalid-feedback"
-          style="display: block;"
-          :class="{ 'mt-2': hasIcon }"
-          v-if="error"
-        >
-          {{ error }}
-        </div>
-      </slot>
     </div>
   </div>
 </template>
@@ -62,7 +49,6 @@ export default {
   props: {
     required: Boolean,
     label: String,
-    error: String,
     type: String,
     labelClasses: String,
     inputClasses: String,
@@ -113,4 +99,3 @@ export default {
   }
 };
 </script>
-<style></style>

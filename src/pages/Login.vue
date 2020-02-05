@@ -55,43 +55,45 @@
       <form @submit.prevent="confirmRegister">
         <fg-input
           class="no-border input-lg form-group"
-          :class="{ 'form-group--error': $v.$store.state.register.signUpForm.firstName.$error }"
+          :class=" $v.$store.state.register.signUpForm.firstName.$invalid ? 'has-danger' : 'has-success' "
           addon-left-icon="now-ui-icons text_caps-small"
           v-model.trim="$store.state.register.signUpForm.firstName"
           placeholder="Nome..."
         ></fg-input>
         <fg-input
           class="no-border input-lg"
-          :class="{ 'form-group--error': $v.$store.state.register.signUpForm.lastName.$error }"
+          :class=" $v.$store.state.register.signUpForm.lastName.$invalid ? 'has-danger' : 'has-success' "
           addon-left-icon="now-ui-icons text_caps-small"
           v-model.trim="$store.state.register.signUpForm.lastName"
           placeholder="Sobrenome..."
         ></fg-input>
         <fg-input
           class="no-border input-lg"
-          :class="{ 'form-group--error': $v.$store.state.register.signUpForm.email.$error }"
+          :class=" $v.$store.state.register.signUpForm.email.$invalid ? 'has-danger' : 'has-success' "
           addon-left-icon="now-ui-icons text_caps-small"
           v-model.trim="$store.state.register.signUpForm.email"
           placeholder="Email..."
         ></fg-input>
         <fg-input
           class="no-border input-lg"
-          :class="{ 'form-group--error': $v.$store.state.register.signUpForm.confirmEmail.$error }"
+          :class=" $v.$store.state.register.signUpForm.confirmEmail.$invalid ? 'has-danger' : 'has-success' "
           addon-left-icon="now-ui-icons text_caps-small"
           v-model.trim="$store.state.register.signUpForm.confirmEmail"
           placeholder="Confirme seu email..."
         ></fg-input>
         <fg-input
           class="no-border input-lg"
-          :class="{ 'form-group--error': $v.$store.state.register.signUpForm.password.$error }"
+          :class=" $v.$store.state.register.signUpForm.password.$invalid ? 'has-danger' : 'has-success' "
           addon-left-icon="now-ui-icons text_caps-small"
           v-model.trim="$store.state.register.signUpForm.password"
           type="password"
           placeholder="Senha..."
         ></fg-input>
+        {{ $v.$store.state.register.signUpForm.password.invalid
+        }}
         <fg-input
           class="no-border input-lg"
-          :class="{ 'form-group--error': $v.$store.state.register.signUpForm.confirmPassword.$error }"
+          :class=" $v.$store.state.register.signUpForm.confirmPassword.$invalid ? 'has-danger' : 'has-success' "
           addon-left-icon="now-ui-icons text_caps-small"
           v-model.trim="$store.state.register.signUpForm.confirmPassword"
           type="password"
@@ -138,7 +140,7 @@ export default {
             lastName: { required },
             email: { required, email },
             confirmEmail: { required, sameAsEmail: sameAs("email") },
-            password: { required, minLength: 8 },
+            password: { required, minLength: minLength(8) },
             confirmPassword: { required, sameAsPassword: sameAs("password") }
           }
         }
