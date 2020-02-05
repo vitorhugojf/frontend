@@ -13,11 +13,12 @@
 
     @include btn-styles($default-color, $default-states-color);
 
-    &:hover,
-    &:focus{
-        @include opacity(1);
-        outline: 0 !important;
+    
+    &:disabled{
+        cursor: default;
+        background-color: rgb(75, 75, 75) !important;
     }
+    &:hover,
     &:active,
     &.active,
     .open > &.dropdown-toggle {

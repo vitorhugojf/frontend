@@ -104,10 +104,11 @@
           class="btn btn-danger btn-round btn-lg btn-block"
           @click="cancelRegister()"
         >Cancelar</n-button>
-        <n-button
+        <button
           class="btn btn-success btn-round btn-lg btn-block"
           @click="confirmRegister()"
-        >Confirmar</n-button>
+          :disabled="this.$v.$invalid"
+        >Confirmar</button>
       </template>
     </modal>
   </div>
@@ -154,9 +155,7 @@ export default {
     },
     confirmRegister() {
       this.$v.$touch();
-      if (this.$v.$invalid) {
-        this.submitStatus = "ERROR";
-      } else {
+      if (this.$v.$valid) {
         var form = this.$store.state.register.signUpForm;
         this.clearForm();
         this.$router.push("profile");
