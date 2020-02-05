@@ -52,38 +52,52 @@
           <i class="fab fa-windows"></i>
         </a>
       </div>
-      <fg-input
-        class="no-border input-lg"
-        addon-left-icon="now-ui-icons text_caps-small"
-        v-model="$store.state.register.signUpForm.firstName"
-        placeholder="Nome..."
-      ></fg-input>
-      <fg-input
-        class="no-border input-lg"
-        addon-left-icon="now-ui-icons text_caps-small"
-        v-model="$store.state.register.signUpForm.lastName"
-        placeholder="Sobrenome..."
-      ></fg-input>
-      <fg-input
-        class="no-border input-lg"
-        addon-left-icon="now-ui-icons text_caps-small"
-        v-model="$store.state.register.signUpForm.email"
-        placeholder="Email..."
-      ></fg-input>
-      <fg-input
-        class="no-border input-lg"
-        addon-left-icon="now-ui-icons text_caps-small"
-        v-model="$store.state.register.signUpForm.password"
-        type="password"
-        placeholder="Senha..."
-      ></fg-input>
-      <fg-input
-        class="no-border input-lg"
-        addon-left-icon="now-ui-icons text_caps-small"
-        v-model="$store.state.register.signUpForm.confirmPassword"
-        type="password"
-        placeholder="Confirme sua senha..."
-      ></fg-input>
+      <form @submit.prevent="confirmRegister">
+        <fg-input
+          class="no-border input-lg form-group"
+          :class="{ 'form-group--error': $v.$store.state.register.signUpForm.firstName.$error }"
+          addon-left-icon="now-ui-icons text_caps-small"
+          v-model.trim="$store.state.register.signUpForm.firstName"
+          placeholder="Nome..."
+        ></fg-input>
+        <fg-input
+          class="no-border input-lg"
+          :class="{ 'form-group--error': $v.$store.state.register.signUpForm.lastName.$error }"
+          addon-left-icon="now-ui-icons text_caps-small"
+          v-model.trim="$store.state.register.signUpForm.lastName"
+          placeholder="Sobrenome..."
+        ></fg-input>
+        <fg-input
+          class="no-border input-lg"
+          :class="{ 'form-group--error': $v.$store.state.register.signUpForm.email.$error }"
+          addon-left-icon="now-ui-icons text_caps-small"
+          v-model.trim="$store.state.register.signUpForm.email"
+          placeholder="Email..."
+        ></fg-input>
+        <fg-input
+          class="no-border input-lg"
+          :class="{ 'form-group--error': $v.$store.state.register.signUpForm.confirmEmail.$error }"
+          addon-left-icon="now-ui-icons text_caps-small"
+          v-model.trim="$store.state.register.signUpForm.confirmEmail"
+          placeholder="Confirme seu email..."
+        ></fg-input>
+        <fg-input
+          class="no-border input-lg"
+          :class="{ 'form-group--error': $v.$store.state.register.signUpForm.password.$error }"
+          addon-left-icon="now-ui-icons text_caps-small"
+          v-model.trim="$store.state.register.signUpForm.password"
+          type="password"
+          placeholder="Senha..."
+        ></fg-input>
+        <fg-input
+          class="no-border input-lg"
+          :class="{ 'form-group--error': $v.$store.state.register.signUpForm.confirmPassword.$error }"
+          addon-left-icon="now-ui-icons text_caps-small"
+          v-model.trim="$store.state.register.signUpForm.confirmPassword"
+          type="password"
+          placeholder="Confirme sua senha..."
+        ></fg-input>
+      </form>
 
       <template slot="footer">
         <n-button
@@ -100,6 +114,8 @@
 </template>
 <script>
 import { Card, Modal, Button, FormGroupInput } from "@/components";
+import { required, sameAs, email, minLength } from "vuelidate/lib/validators";
+
 export default {
   name: "login-page",
   bodyClass: "login-page",
@@ -112,6 +128,22 @@ export default {
   data: () => ({
     signUp: false
   }),
+  validations: {
+    $store: {
+      state: {
+        register: {
+          signUpForm: {
+            firstName: { required },
+            lastName: { required },
+            email: { required, email },
+            confirmEmail: { required, sameAsEmail: sameAs("email") },
+            password: { required, minLength: 8 },
+            confirmPassword: { required, sameAsPassword: sameAs("password") }
+          }
+        }
+      }
+    }
+  },
   methods: {
     signIn() {
       this.$router.push("profile");
@@ -121,14 +153,20 @@ export default {
       this.signUp = false;
     },
     confirmRegister() {
-      var form = this.$store.state.register.signUpForm;
-      this.clearForm();
-      this.$router.push("profile");
+      this.$v.$touch();
+      if (this.$v.$invalid) {
+        this.submitStatus = "ERROR";
+      } else {
+        var form = this.$store.state.register.signUpForm;
+        this.clearForm();
+        this.$router.push("profile");
+      }
     },
     clearForm() {
       this.$store.state.register.signUpForm.firstName = "";
       this.$store.state.register.signUpForm.lastName = "";
       this.$store.state.register.signUpForm.email = "";
+      this.$store.state.register.signUpForm.confirmEmail = "";
       this.$store.state.register.signUpForm.password = "";
       this.$store.state.register.signUpForm.confirmPassword = "";
     }

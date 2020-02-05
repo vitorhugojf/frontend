@@ -4,6 +4,7 @@ export default {
       firstName: "",
       lastName: "",
       email: "",
+      confirmEmail: "",
       password: "",
       confirmPassword: ""
     }
