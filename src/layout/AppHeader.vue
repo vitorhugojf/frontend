@@ -7,16 +7,7 @@
     menu-classes="ml-auto"
   >
     <template>
-      <router-link v-popover:popover1 class="navbar-brand" to="/index">Now Ui Kit</router-link>
-      <el-popover
-        ref="popover1"
-        popper-class="popover"
-        placement="bottom"
-        width="200"
-        trigger="hover"
-      >
-        <div class="popover-body">Designed by Invision. Coded by Creative Tim</div>
-      </el-popover>
+      <router-link v-popover:popover1 class="navbar-brand" to="/index">Frontend</router-link>
     </template>
     <template slot="navbar-menu">
       <!-- <li class="nav-item">
@@ -30,10 +21,7 @@
         </a>
       </li>-->
       <drop-down tag="li" title="Components" icon="now-ui-icons design_app" class="nav-item">
-        <nav-link to="/">
-          <i class="now-ui-icons business_chart-pie-36"></i> All components
-        </nav-link>
-         <a
+        <a
           href="https://demos.creative-tim.com/vue-now-ui-kit/documentation"
           target="_blank"
           class="dropdown-item"
@@ -48,12 +36,9 @@
             {{item.title}}
           </nav-link>
 
-         <a
-          class="dropdown-item"
-          @click="logout()"
-        >
-          <i class="now-ui-icons ui-1_simple-remove"></i> Sair
-        </a>
+          <a class="dropdown-item" @click="logout()">
+            <i class="now-ui-icons ui-1_simple-remove"></i> Sair
+          </a>
         </div>
         <div v-else>
           <nav-link v-for="(item, index) in loggedOutLinks" :key="index" :to="item.path">
@@ -69,7 +54,7 @@
           rel="tooltip"
           title="Follow us on Twitter"
           data-placement="bottom"
-          href="https://twitter.com/CreativeTim"
+          href
           target="_blank"
         >
           <i class="fab fa-twitter"></i>
@@ -82,7 +67,7 @@
           rel="tooltip"
           title="Like us on Facebook"
           data-placement="bottom"
-          href="https://www.facebook.com/CreativeTim"
+          href
           target="_blank"
         >
           <i class="fab fa-facebook-square"></i>
@@ -95,7 +80,7 @@
           rel="tooltip"
           title="Follow us on Instagram"
           data-placement="bottom"
-          href="https://www.instagram.com/CreativeTimOfficial"
+          href
           target="_blank"
         >
           <i class="fab fa-instagram"></i>
@@ -163,7 +148,11 @@ export default {
         path: "/landing",
         icon: "now-ui-icons arrows-1_minimal-right"
       },
-      { title: "Login", path: "/login", icon: "now-ui-icons arrows-1_minimal-right" }
+      {
+        title: "Login",
+        path: "/login",
+        icon: "now-ui-icons arrows-1_minimal-right"
+      }
     ]
   })
 };

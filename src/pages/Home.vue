@@ -1,44 +1,24 @@
 <template>
   <div>
     <div class="page-header clear-filter" filter-color="black">
-      <parallax
+      <video-bg
         class="page-header-image"
-        style="background-image:url('img/header.jpg')"
-      >
-      </parallax>
+        :sources="['/assets/beach.mp4']"
+        img="/assets/beach_image.jpg"
+      ></video-bg>
+
       <div class="container">
         <div class="content-center brand">
-          <img class="n-logo" src="img/now-logo.png" alt="" />
-          <h1 class="h1-seo">Now UI Kit.</h1>
-          <h3>A beautiful Bootstrap 4 UI kit. Yours free.</h3>
+          <h1 class="h1-seo">The default frontend Project.</h1>
+          <h3>Um projeto para servir de inicio no desenvolvimento de todos os proximos SPA's.</h3>
         </div>
         <h6 class="category category-absolute">
-          Designed by
-          <a href="http://invisionapp.com/" target="_blank">
-            <img src="img/invision-white-slim.png" class="invision-logo" /> </a
-          >
+          Made by
+          <a href="https://br.linkedin.com/in/vhnp" target="_blank">Vitor</a>
         </h6>
       </div>
     </div>
-    <div class="main">
-      <div class="section section-images">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="hero-images-container">
-                <img src="img/hero-image-1.png" alt="" />
-              </div>
-              <div class="hero-images-container-1">
-                <img src="img/hero-image-2.png" alt="" />
-              </div>
-              <div class="hero-images-container-2">
-                <img src="img/hero-image-3.png" alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div v-if="dev">
     <basic-elements></basic-elements>
     <navigation></navigation>
     <tabs-section></tabs-section>
@@ -66,26 +46,27 @@
     <signup-form></signup-form>
     <examples-section></examples-section>
     <download-section></download-section>
+    </div>
   </div>
 </template>
 <script>
-import { Parallax } from '@/components';
-import BasicElements from './components/BasicElementsSection';
-import Navigation from './components/Navigation';
-import TabsSection from './components/Tabs';
-import ProgressPagination from './components/ProgressPagination';
-import Notifications from './components/Notifications';
-import Typography from './components/Typography';
-import JavascriptComponents from './components/JavascriptComponents';
-import CarouselSection from './components/CarouselSection';
-import NucleoIconsSection from './components/NucleoIconsSection';
-import SignupForm from './components/SignupForm';
-import ExamplesSection from './components/ExamplesSection';
-import DownloadSection from './components/DownloadSection';
+import { Parallax } from "@/components";
+import BasicElements from "./components/BasicElementsSection";
+import Navigation from "./components/Navigation";
+import TabsSection from "./components/Tabs";
+import ProgressPagination from "./components/ProgressPagination";
+import Notifications from "./components/Notifications";
+import Typography from "./components/Typography";
+import JavascriptComponents from "./components/JavascriptComponents";
+import CarouselSection from "./components/CarouselSection";
+import NucleoIconsSection from "./components/NucleoIconsSection";
+import SignupForm from "./components/SignupForm";
+import ExamplesSection from "./components/ExamplesSection";
+import DownloadSection from "./components/DownloadSection";
 
 export default {
-  name: 'home',
-  bodyClass: 'home-page',
+  name: "home",
+  bodyClass: "home-page",
   components: {
     Parallax,
     BasicElements,
@@ -100,7 +81,8 @@ export default {
     SignupForm,
     ExamplesSection,
     DownloadSection
-  }
+  },
+  data: () => ({ dev: false })
 };
 </script>
 <style></style>
