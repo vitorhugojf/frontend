@@ -5,6 +5,8 @@ import globalComponents from "./globalComponents";
 import lang from "element-ui/lib/locale/lang/en";
 import locale from "element-ui/lib/locale";
 import VueLazyload from "vue-lazyload";
+import Vuelidate from "vuelidate";
+import VueTheMask from "vue-the-mask";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "@/assets/scss/now-ui-kit.scss";
@@ -22,3 +24,5 @@ Vue.use(VueLazyload, {
     threshold: 0.1
   }
 });
+Vue.use(Vuelidate);
+Vue.use(VueTheMask);

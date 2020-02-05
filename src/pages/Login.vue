@@ -42,13 +42,13 @@
     <modal :show.sync="signUp" headerClasses="justify-content-center" class="modal-black">
       <h4 slot="header" class="card-title title-up">Se Registre</h4>
       <div class="social-line text-center">
-        <a href="" class="btn btn-neutral btn-linkedin btn-icon btn-round">
+        <a href class="btn btn-neutral btn-linkedin btn-icon btn-round">
           <i class="fab fa-linkedin"></i>
         </a>
-        <a href="" class="btn btn-neutral btn-google btn-lg btn-icon btn-round">
+        <a href class="btn btn-neutral btn-google btn-lg btn-icon btn-round">
           <i class="fab fa-google-plus"></i>
         </a>
-        <a href="" class="btn btn-neutral btn-icon btn-round">
+        <a href class="btn btn-neutral btn-icon btn-round">
           <i class="fab fa-windows"></i>
         </a>
       </div>
@@ -86,7 +86,10 @@
       ></fg-input>
 
       <template slot="footer">
-        <n-button class="btn btn-danger btn-round btn-lg btn-block" @click="cancelRegister()">Cancelar</n-button>
+        <n-button
+          class="btn btn-danger btn-round btn-lg btn-block"
+          @click="cancelRegister()"
+        >Cancelar</n-button>
         <n-button
           class="btn btn-success btn-round btn-lg btn-block"
           @click="confirmRegister()"
