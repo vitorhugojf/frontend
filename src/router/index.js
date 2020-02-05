@@ -11,9 +11,9 @@ export default new Router({
   linkExactActiveClass: "active",
   routes: [
     {
-      path: "/index",
-      name: "index",
-      components: { header: AppHeader, default: () => import(/* webpackChunkName: "Index" */ "../pages/Index.vue"), footer: AppFooter },
+      path: "/home",
+      name: "home",
+      components: { header: AppHeader, default: () => import(/* webpackChunkName: "Home" */ "../pages/Home.vue"), footer: AppFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: "black" }
@@ -47,7 +47,7 @@ export default new Router({
     },
     {
       path: "*",
-      redirect: "index"
+      redirect: "home"
     }
   ],
   scrollBehavior: to => {

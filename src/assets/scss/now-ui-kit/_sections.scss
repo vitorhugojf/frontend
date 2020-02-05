@@ -108,7 +108,7 @@
         display: none;
     }
 
-    &[filter-color="orange"]{
+    &[filter-color="black"]{
         @include linear-gradient(rgba($black-color,.20), rgba(224, 23, 3, 0.6));
     }
 }
@@ -299,8 +299,8 @@
 }
 
 
-[data-background-color="orange"]{
-    background-color: $orange-bg;
+[data-background-color="black"]{
+    background-color: $black-bg;
 }
 [data-background-color="black"]{
     background-color: $black-color;

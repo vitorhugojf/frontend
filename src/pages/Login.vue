@@ -1,5 +1,5 @@
 <template>
-  <div class="page-header clear-filter" filter-color="orange">
+  <div class="page-header clear-filter" filter-color="black">
     <div class="page-header-image" style="background-image: url('img/login.jpg')"></div>
     <div class="content">
       <div class="container">
@@ -18,11 +18,12 @@
             <fg-input
               class="no-border input-lg"
               addon-left-icon="now-ui-icons text_caps-small"
+              type="password"
               placeholder="Senha..."
             ></fg-input>
 
             <div class="card-footer text-center">
-              <router-link to="profile" class="btn btn-primary btn-round btn-lg btn-block">Sign In</router-link>
+              <a  class="btn btn-primary btn-round btn-lg btn-block" @click="signIn()">Sign In</a>
             </div>
             <div class="pull-left">
               <h6>
@@ -38,19 +39,50 @@
         </div>
       </div>
     </div>
-    <modal :show.sync="signUp" headerClasses="justify-content-center">
-      <h4 slot="header" class="title title-up">Modal title</h4>
-      <p>
-        Far far away, behind the word mountains, far from the countries Vokalia
-        and Consonantia, there live the blind texts. Separated they live in
-        Bookmarksgrove right at the coast of the Semantics, a large language
-        ocean. A small river named Duden flows by their place and supplies it
-        with the necessary regelialia. It is a paradisematic country, in which
-        roasted parts of sentences fly into your mouth.
-      </p>
+    <modal :show.sync="signUp" headerClasses="justify-content-center" class="modal-primary">
+      <h4 slot="header" class="card-title title-up">Sign Up</h4>
+      <div class="social-line text-center">
+        <a href="#pablo" class="btn btn-neutral btn-facebook btn-icon btn-round">
+          <i class="fab fa-facebook-square"></i>
+        </a>
+        <a href="#pablo" class="btn btn-neutral btn-twitter btn-icon btn-lg btn-round">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#pablo" class="btn btn-neutral btn-google btn-icon btn-round">
+          <i class="fab fa-google-plus"></i>
+        </a>
+      </div>
+      <fg-input
+        class="no-border input-lg"
+        addon-left-icon="now-ui-icons text_caps-small"
+        placeholder="Senha..."
+      ></fg-input>
+      <fg-input
+        class="no-border input-lg"
+        addon-left-icon="now-ui-icons text_caps-small"
+        placeholder="Senha..."
+      ></fg-input>
+      <fg-input
+        class="no-border input-lg"
+        addon-left-icon="now-ui-icons text_caps-small"
+        placeholder="Senha..."
+      ></fg-input>
+      <fg-input
+        class="no-border input-lg"
+        addon-left-icon="now-ui-icons text_caps-small"
+        type="password"
+        placeholder="Senha..."
+      ></fg-input>
+      <fg-input
+        class="no-border input-lg"
+        addon-left-icon="now-ui-icons text_caps-small"
+        type="password"
+        placeholder="Senha..."
+      ></fg-input>
+
       <template slot="footer">
-        <n-button type="danger" @click="signUp = false">Close</n-button>
-        <n-button @click="register()">Sign Up</n-button>
+        <n-button class="btn btn-danger btn-round btn-lg btn-block" @click="signUp = false">Close</n-button>
+        <n-button class="btn btn-success btn-round btn-lg btn-block" @click="register()">Sign Up</n-button>
       </template>
     </modal>
   </div>
@@ -70,6 +102,9 @@ export default {
     signUp: false
   }),
   methods: {
+    signIn() {
+      this.$router.push("profile");
+    },
     register() {
       var form = this.$store.state.register.signUpForm;
       this.$router.push("profile");
@@ -82,7 +117,7 @@ a {
   cursor: pointer;
 }
 
-.modal {
-  color: black;
+.card-footer {
+  margin-top: 20px;
 }
 </style>

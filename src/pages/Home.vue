@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="page-header clear-filter" filter-color="orange">
+    <div class="page-header clear-filter" filter-color="black">
       <parallax
         class="page-header-image"
         style="background-image:url('img/header.jpg')"
@@ -84,8 +84,8 @@ import ExamplesSection from './components/ExamplesSection';
 import DownloadSection from './components/DownloadSection';
 
 export default {
-  name: 'index',
-  bodyClass: 'index-page',
+  name: 'home',
+  bodyClass: 'home-page',
   components: {
     Parallax,
     BasicElements,

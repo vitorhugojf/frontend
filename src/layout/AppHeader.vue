@@ -33,7 +33,11 @@
         <nav-link to="/">
           <i class="now-ui-icons business_chart-pie-36"></i> All components
         </nav-link>
-        <a href="https://demos.creative-tim.com/vue-now-ui-kit/documentation" target="_blank">
+         <a
+          href="https://demos.creative-tim.com/vue-now-ui-kit/documentation"
+          target="_blank"
+          class="dropdown-item"
+        >
           <i class="now-ui-icons design_bullet-list-67"></i> Documentation
         </a>
       </drop-down>
@@ -43,6 +47,13 @@
             <i :class="item.icon"></i>
             {{item.title}}
           </nav-link>
+
+         <a
+          class="dropdown-item"
+          @click="logout()"
+        >
+          <i class="now-ui-icons ui-1_simple-remove"></i> Sair
+        </a>
         </div>
         <div v-else>
           <nav-link v-for="(item, index) in loggedOutLinks" :key="index" :to="item.path">
@@ -116,41 +127,50 @@ export default {
       return false;
     }
   },
+  methods: {
+    logout() {
+      debugger;
+    }
+  },
   data: () => ({
     loggedInLinks: [
       {
-        title: "Index",
-        path: "/index",
-        icon: "now-ui-icons education_paper"
+        title: "Home",
+        path: "/home",
+        icon: "now-ui-icons arrows-1_minimal-right"
       },
       {
         title: "Landing",
         path: "/landing",
-        icon: "now-ui-icons education_paper",
+        icon: "now-ui-icons arrows-1_minimal-right",
         onlyAdmin: false
       },
       {
         title: "Profile",
         path: "/profile",
-        icon: "now-ui-icons users_single-02",
+        icon: "now-ui-icons arrows-1_minimal-right",
         onlyAdmin: false
       }
     ],
     loggedOutLinks: [
       {
-        title: "Index",
-        path: "/index",
-        icon: "now-ui-icons education_paper"
+        title: "Home",
+        path: "/home",
+        icon: "now-ui-icons arrows-1_minimal-right"
       },
       {
         title: "Landing",
         path: "/landing",
-        icon: "now-ui-icons education_paper"
+        icon: "now-ui-icons arrows-1_minimal-right"
       },
-      { title: "Login", path: "/login", icon: "now-ui-icons users_circle-08" }
+      { title: "Login", path: "/login", icon: "now-ui-icons arrows-1_minimal-right" }
     ]
   })
 };
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+a {
+  cursor: pointer;
+}
+</style>
