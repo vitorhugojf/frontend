@@ -23,66 +23,74 @@
             ></fg-input>
 
             <div class="card-footer text-center">
-              <a  class="btn btn-primary btn-round btn-lg btn-block" @click="signIn()">Sign In</a>
+              <a class="btn btn-primary btn-round btn-lg btn-block" @click="signIn()">Entrar</a>
             </div>
             <div class="pull-left">
               <h6>
-                <a class="link footer-link" type="primary" @click="signUp = true">Sign Up</a>
+                <a class="link footer-link" type="primary" @click="signUp = true">Se Registre</a>
               </h6>
             </div>
             <div class="pull-right">
               <h6>
-                <router-link to="landing" class="link footer-link">Need Help?</router-link>
+                <router-link to="landing" class="link footer-link">Precisa de Ajuda?</router-link>
               </h6>
             </div>
           </card>
         </div>
       </div>
     </div>
-    <modal :show.sync="signUp" headerClasses="justify-content-center" class="modal-primary">
-      <h4 slot="header" class="card-title title-up">Sign Up</h4>
+    <modal :show.sync="signUp" headerClasses="justify-content-center" class="modal-black">
+      <h4 slot="header" class="card-title title-up">Se Registre</h4>
       <div class="social-line text-center">
-        <a href="#pablo" class="btn btn-neutral btn-facebook btn-icon btn-round">
-          <i class="fab fa-facebook-square"></i>
+        <a href="" class="btn btn-neutral btn-linkedin btn-icon btn-round">
+          <i class="fab fa-linkedin"></i>
         </a>
-        <a href="#pablo" class="btn btn-neutral btn-twitter btn-icon btn-lg btn-round">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#pablo" class="btn btn-neutral btn-google btn-icon btn-round">
+        <a href="" class="btn btn-neutral btn-google btn-lg btn-icon btn-round">
           <i class="fab fa-google-plus"></i>
+        </a>
+        <a href="" class="btn btn-neutral btn-icon btn-round">
+          <i class="fab fa-windows"></i>
         </a>
       </div>
       <fg-input
         class="no-border input-lg"
         addon-left-icon="now-ui-icons text_caps-small"
-        placeholder="Senha..."
+        v-model="$store.state.register.signUpForm.firstName"
+        placeholder="Nome..."
       ></fg-input>
       <fg-input
         class="no-border input-lg"
         addon-left-icon="now-ui-icons text_caps-small"
-        placeholder="Senha..."
+        v-model="$store.state.register.signUpForm.lastName"
+        placeholder="Sobrenome..."
       ></fg-input>
       <fg-input
         class="no-border input-lg"
         addon-left-icon="now-ui-icons text_caps-small"
-        placeholder="Senha..."
+        v-model="$store.state.register.signUpForm.email"
+        placeholder="Email..."
       ></fg-input>
       <fg-input
         class="no-border input-lg"
         addon-left-icon="now-ui-icons text_caps-small"
+        v-model="$store.state.register.signUpForm.password"
         type="password"
         placeholder="Senha..."
       ></fg-input>
       <fg-input
         class="no-border input-lg"
         addon-left-icon="now-ui-icons text_caps-small"
+        v-model="$store.state.register.signUpForm.confirmPassword"
         type="password"
-        placeholder="Senha..."
+        placeholder="Confirme sua senha..."
       ></fg-input>
 
       <template slot="footer">
-        <n-button class="btn btn-danger btn-round btn-lg btn-block" @click="signUp = false">Close</n-button>
-        <n-button class="btn btn-success btn-round btn-lg btn-block" @click="register()">Sign Up</n-button>
+        <n-button class="btn btn-danger btn-round btn-lg btn-block" @click="cancelRegister()">Cancelar</n-button>
+        <n-button
+          class="btn btn-success btn-round btn-lg btn-block"
+          @click="confirmRegister()"
+        >Confirmar</n-button>
       </template>
     </modal>
   </div>
@@ -105,9 +113,21 @@ export default {
     signIn() {
       this.$router.push("profile");
     },
-    register() {
+    cancelRegister() {
+      this.clearForm();
+      this.signUp = false;
+    },
+    confirmRegister() {
       var form = this.$store.state.register.signUpForm;
+      this.clearForm();
       this.$router.push("profile");
+    },
+    clearForm() {
+      this.$store.state.register.signUpForm.firstName = "";
+      this.$store.state.register.signUpForm.lastName = "";
+      this.$store.state.register.signUpForm.email = "";
+      this.$store.state.register.signUpForm.password = "";
+      this.$store.state.register.signUpForm.confirmPassword = "";
     }
   }
 };

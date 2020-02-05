@@ -156,6 +156,10 @@
         @include modal-colors($info-color, $white-color);
     }
 
+    &.modal-black{
+        @include modal-colors($black-color, $white-color);
+    }
+
     &.show.modal-mini .modal-dialog{
         -webkit-transform: translate(0,30%);
         -o-transform: translate(0,30%);
