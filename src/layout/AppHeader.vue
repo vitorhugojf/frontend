@@ -44,12 +44,14 @@ export default {
   },
   computed: {
     loggedIn() {
-      return false;
+      return this.$store.getters.isAuthenticated;
     }
   },
   methods: {
     logout() {
-      debugger;
+      this.$store.dispatch("auth_logout").then(() => {
+        this.$router.push("home");
+      });
     }
   },
   data: () => ({

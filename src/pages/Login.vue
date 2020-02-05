@@ -149,7 +149,9 @@ export default {
   },
   methods: {
     signIn() {
-      this.$router.push("profile");
+      this.$store.dispatch("auth_login", this.userLogin).then(() => {
+        this.$router.push("profile");
+      });
     },
     cancelRegister() {
       this.clearForm();
