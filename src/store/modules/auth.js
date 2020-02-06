@@ -10,9 +10,9 @@ export default {
     }
   },
   mutations: {
-    auth_login(state, payload) {
+    auth_login(state, token) {
       localStorage.setItem("token", "teste");
-      state.token = payload;
+      state.token = token;
     },
     auth_logout(state) {
       localStorage.removeItem("token");
@@ -24,7 +24,6 @@ export default {
       commit("auth_login", "teste");
       //   await accountHttpService.post("Login", payload).then(data => {
       //     commit('auth_login', data.data.token)
-      //     localStorage.setItem("token", data.data.token);
       //   });
     },
     auth_logout({ commit }) {

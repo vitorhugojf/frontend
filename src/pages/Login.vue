@@ -156,25 +156,19 @@ export default {
       });
     },
     cancelRegister() {
-      this.clearForm();
+      this.$store.dispatch("clear_form");
       this.signUp = false;
     },
     confirmRegister() {
       this.$v.$touch();
       if (this.$v.$valid) {
-        var form = this.$store.state.register.signUpForm;
-        this.clearForm();
+        this.$store.dispatch("clear_form");
+
+        //registra o usuário no back pega o token e then
         this.$router.push("profile");
       }
     },
-    clearForm() {
-      this.$store.state.register.signUpForm.firstName = "";
-      this.$store.state.register.signUpForm.lastName = "";
-      this.$store.state.register.signUpForm.email = "";
-      this.$store.state.register.signUpForm.confirmEmail = "";
-      this.$store.state.register.signUpForm.password = "";
-      this.$store.state.register.signUpForm.confirmPassword = "";
-    }
+    clearForm() {}
   }
 };
 </script>

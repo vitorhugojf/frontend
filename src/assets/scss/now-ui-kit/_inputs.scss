@@ -6,7 +6,7 @@
     border-radius: $btn-round-radius;
     color: $black-color;
     line-height: normal;
-    font-size: $font-size-base;
+    font-size: $font-size-small;
     height: 100%;
     @include transition-input-focus-color();
     @include box-shadow(none);
@@ -51,7 +51,6 @@
 
     .has-danger &{
         border-color: lighten($danger-color, 30%);
-        color: $danger-color;
         background-color: rgba(222,222,222, .1);
 
         &:focus{
@@ -88,7 +87,7 @@
         position: absolute;
         right: 20px;
         top: 12px;
-        color: $success-color;
+        color: greenyellow;
         font-size: 11px;
     }
 
@@ -103,7 +102,7 @@
 .has-danger{
     &:after{
         content: "\ea53";
-        color: $danger-color;
+        color: red;
     }
 }
 
