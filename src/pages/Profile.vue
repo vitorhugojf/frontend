@@ -74,7 +74,7 @@
                 <div class="row collections">
                   <div class="col-md-6">
                     <img src="img/bg6.jpg" class="img-raised" />
-                    <img src="img/bg11.jpg" alt="" class="img-raised" />
+                    <img src="img/bg3.jpg" alt="" class="img-raised" />
                   </div>
                   <div class="col-md-6">
                     <img src="img/bg7.jpg" alt="" class="img-raised" />
