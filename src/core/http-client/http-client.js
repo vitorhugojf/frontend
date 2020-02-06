@@ -1,9 +1,9 @@
 import axios from "./instance";
 
 export default class HttpClient {
-  controller;
-  constructor(resource) {
-    this.controller = resource;
+
+  constructor(controller) {
+    this.controller = controller;
   }
 
   get(action = "") {
@@ -25,12 +25,4 @@ export default class HttpClient {
   delete(action = "") {
     return axios.delete(`${this.controller}/${action}`);
   }
-
-  showLoading = () => {
-    this.loading = vm.$loading.show();
-  };
-
-  hideLoading = () => {
-    this.loading.hide();
-  };
 }

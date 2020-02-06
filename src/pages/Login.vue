@@ -162,8 +162,6 @@ export default {
     confirmRegister() {
       this.$v.$touch();
       if (this.$v.$valid) {
-        this.$store.dispatch("clear_form");
-
         //registra o usuário no back pega o token e then
         this.$router.push("profile");
       }

@@ -1,22 +1,14 @@
 <template>
   <div>
     <div class="page-header clear-filter" filter-color="black">
-      <parallax
-        class="page-header-image"
-        style="background-image:url('assets/background/bg5.jpg')"
-      >
-      </parallax>
+      <parallax class="page-header-image" style="background-image:url('assets/background/bg5.jpg')"></parallax>
       <div class="container">
         <div class="photo-container">
-          <img src="assets/img/ryan.jpg" alt="" />
+          <img src="assets/img/ryan.jpg" alt />
         </div>
         <h3 class="title">Ryan Scheinder</h3>
         <p class="category">Photographer</p>
         <div class="content">
-          <div class="social-description">
-            <h2>26</h2>
-            <p>Comments</p>
-          </div>
           <div class="social-description">
             <h2>26</h2>
             <p>Comments</p>
@@ -31,9 +23,8 @@
     <div class="section">
       <div class="container">
         <div class="button-container">
-          <a href="#button" class="btn btn-primary btn-round btn-lg">Follow</a>
           <a
-            href="#button"
+            href
             class="btn btn-default btn-round btn-lg btn-icon"
             rel="tooltip"
             title="Follow me on Twitter"
@@ -41,7 +32,7 @@
             <i class="fab fa-twitter"></i>
           </a>
           <a
-            href="#button"
+            href
             class="btn btn-default btn-round btn-lg btn-icon"
             rel="tooltip"
             title="Follow me on Instagram"
@@ -74,11 +65,11 @@
                 <div class="row collections">
                   <div class="col-md-6">
                     <img src="assets/background/bg6.jpg" class="img-raised" />
-                    <img src="assets/background/bg3.jpg" alt="" class="img-raised" />
+                    <img src="assets/background/bg3.jpg" alt class="img-raised" />
                   </div>
                   <div class="col-md-6">
-                    <img src="assets/background/bg7.jpg" alt="" class="img-raised" />
-                    <img src="assets/background/bg8.jpg" alt="" class="img-raised" />
+                    <img src="assets/background/bg7.jpg" alt class="img-raised" />
+                    <img src="assets/background/bg8.jpg" alt class="img-raised" />
                   </div>
                 </div>
               </div>
@@ -90,12 +81,12 @@
               <div class="col-md-10 ml-auto mr-auto">
                 <div class="row collections">
                   <div class="col-md-6">
-                    <img src="assets/background/bg1.jpg" alt="" class="img-raised" />
-                    <img src="assets/background/bg3.jpg" alt="" class="img-raised" />
+                    <img src="assets/background/bg1.jpg" alt class="img-raised" />
+                    <img src="assets/background/bg3.jpg" alt class="img-raised" />
                   </div>
                   <div class="col-md-6">
-                    <img src="assets/background/bg8.jpg" alt="" class="img-raised" />
-                    <img src="assets/background/bg7.jpg" alt="" class="img-raised" />
+                    <img src="assets/background/bg8.jpg" alt class="img-raised" />
+                    <img src="assets/background/bg7.jpg" alt class="img-raised" />
                   </div>
                 </div>
               </div>
@@ -107,11 +98,11 @@
               <div class="col-md-10 ml-auto mr-auto">
                 <div class="row collections">
                   <div class="col-md-6">
-                    <img src="assets/background/bg3.jpg" alt="" class="img-raised" />
-                    <img src="assets/background/bg8.jpg" alt="" class="img-raised" />
+                    <img src="assets/background/bg3.jpg" alt class="img-raised" />
+                    <img src="assets/background/bg8.jpg" alt class="img-raised" />
                   </div>
                   <div class="col-md-6">
-                    <img src="assets/background/bg7.jpg" alt="" class="img-raised" />
+                    <img src="assets/background/bg7.jpg" alt class="img-raised" />
                     <img src="assets/background/bg6.jpg" class="img-raised" />
                   </div>
                 </div>
@@ -124,11 +115,11 @@
   </div>
 </template>
 <script>
-import { Tabs, TabPane } from '@/components';
+import { Tabs, TabPane } from "@/components";
 
 export default {
-  name: 'profile',
-  bodyClass: 'profile-page',
+  name: "profile",
+  bodyClass: "profile-page",
   components: {
     Tabs,
     TabPane
