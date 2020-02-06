@@ -6,15 +6,15 @@ $vt-toast-background: #ffffff !default;
 $vt-toast-min-height: 64px !default;
 $vt-toast-max-height: 800px !default;
 
-$vt-color-default: $primary-states-color !default;
+$vt-color-default: $primary-toast-color !default;
 $vt-text-color-default: #fff !default;
-$vt-color-info: $info-states-color !default;
+$vt-color-info: $info-toast-color !default;
 $vt-text-color-info: #fff !default;
-$vt-color-success: $success-states-color !default;
+$vt-color-success: $success-toast-color !default;
 $vt-text-color-success: #fff !default;
-$vt-color-warning: $warning-states-color !default;
+$vt-color-warning: $warning-toast-color !default;
 $vt-text-color-warning: #fff !default;
-$vt-color-error: $danger-states-color !default;
+$vt-color-error: $danger-toast-color !default;
 $vt-text-color-error: #fff !default;
 
 $vt-color-progress-default: linear-gradient(
@@ -40,7 +40,6 @@ $vt-z-index: 9999 !default;
   box-sizing: border-box;
   margin-bottom: 1rem;
   padding: 22px 24px;
-  border-radius: 8px;
   box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);
   justify-content: space-between;
   font-family: $vt-font-family;

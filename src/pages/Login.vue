@@ -151,10 +151,15 @@ export default {
   },
   methods: {
     signIn() {
-      this.$store.dispatch("auth_login", this.objLogin).then(() => {
-        this.$toast.success(`Bem vindo!`);
-        this.$router.push("profile");
-      });
+      var random = Math.random() >= 0.5;
+      if (random) {
+        this.$store.dispatch("auth_login", this.objLogin).then(() => {
+          this.$toast.success(`Bem vindo !`);
+          this.$router.push("profile");
+        });
+      } else {
+        this.$toast.error(`Erro ao efetuar o login !`);
+      }
     },
     cancelRegister() {
       this.$store.dispatch("clear_form");
