@@ -8,6 +8,9 @@ import VueLazyload from "vue-lazyload";
 import Vuelidate from "vuelidate";
 import VueTheMask from "vue-the-mask";
 
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
+
 import "bootstrap/dist/css/bootstrap.css";
 import "@/assets/scss/now-ui-kit.scss";
 import "@/assets/demo/demo.css";
@@ -26,3 +29,13 @@ Vue.use(VueLazyload, {
 });
 Vue.use(Vuelidate);
 Vue.use(VueTheMask);
+Vue.use(Toast, {
+  position: "bottom-left",
+  transition: "Vue-Toastification__slideBlurred",
+  filterBeforeCreate: (toast, toasts) => {
+    if (toasts.filter(t => t.type === toast.type).length !== 0) {
+      return false;
+    }
+    return toast;
+  }
+});

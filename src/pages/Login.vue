@@ -151,7 +151,8 @@ export default {
   },
   methods: {
     signIn() {
-      this.$store.dispatch("auth_login", this.userLogin).then(() => {
+      this.$store.dispatch("auth_login", this.objLogin).then(() => {
+        this.$toast.success(`Bem vindo!`);
         this.$router.push("profile");
       });
     },
