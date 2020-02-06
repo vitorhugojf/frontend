@@ -40,7 +40,7 @@
       </div>
     </div>
     <modal :show.sync="signUp" headerClasses="justify-content-center" class="modal-black">
-      <h4 slot="header" class="card-title title-up">Se Registre</h4>
+      <h4 slot="header" class="card-title title-up">Se Registre com</h4>
       <div class="social-line text-center">
         <a href class="btn btn-neutral btn-linkedin btn-icon btn-round">
           <i class="fab fa-linkedin"></i>
@@ -53,6 +53,8 @@
         </a>
       </div>
       <form @submit.prevent="confirmRegister">
+        <h6 class="card-title title-up text-center">ou faça seu registro localmente</h6>
+
         <fg-input
           class="no-border input-lg form-group"
           :class=" $v.$store.state.register.signUpForm.firstName.$invalid ? 'has-danger' : 'has-success' "

@@ -82,7 +82,7 @@ export default {
     ExamplesSection,
     DownloadSection
   },
-  data: () => ({ dev: true })
+  data: () => ({ dev: false })
 };
 </script>
 <style></style>
