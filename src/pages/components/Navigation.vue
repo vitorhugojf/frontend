@@ -92,7 +92,7 @@
     <div id="navbar">
       <div
         class="navigation-example"
-        style="background-image:url('img/bg7.jpg')"
+        style="background-image:url('assets/background/bg7.jpg')"
       >
         <!-- Navbar Primary  -->
         <navbar type="primary" menu-classes="ml-auto">

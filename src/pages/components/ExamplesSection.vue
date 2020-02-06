@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col">
           <router-link to="/landing" target="_blank">
-            <img src="img/landing.jpg" alt="Image" class="img-raised" />
+            <img src="assets/img/landing.jpg" alt="Image" class="img-raised" />
           </router-link>
           <router-link
             to="/landing"
@@ -15,7 +15,7 @@
         </div>
         <div class="col">
           <router-link to="/profile" target="_blank">
-            <img src="img/profile.jpg" alt="Image" class="img-raised" />
+            <img src="assets/img/profile.jpg" alt="Image" class="img-raised" />
           </router-link>
           <router-link
             to="/profile"

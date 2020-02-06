@@ -3,12 +3,12 @@
     <div class="page-header clear-filter" filter-color="black">
       <parallax
         class="page-header-image"
-        style="background-image:url('img/bg5.jpg')"
+        style="background-image:url('assets/background/bg5.jpg')"
       >
       </parallax>
       <div class="container">
         <div class="photo-container">
-          <img src="img/ryan.jpg" alt="" />
+          <img src="assets/img/ryan.jpg" alt="" />
         </div>
         <h3 class="title">Ryan Scheinder</h3>
         <p class="category">Photographer</p>
@@ -73,12 +73,12 @@
               <div class="col-md-10 ml-auto mr-auto">
                 <div class="row collections">
                   <div class="col-md-6">
-                    <img src="img/bg6.jpg" class="img-raised" />
-                    <img src="img/bg3.jpg" alt="" class="img-raised" />
+                    <img src="assets/background/bg6.jpg" class="img-raised" />
+                    <img src="assets/background/bg3.jpg" alt="" class="img-raised" />
                   </div>
                   <div class="col-md-6">
-                    <img src="img/bg7.jpg" alt="" class="img-raised" />
-                    <img src="img/bg8.jpg" alt="" class="img-raised" />
+                    <img src="assets/background/bg7.jpg" alt="" class="img-raised" />
+                    <img src="assets/background/bg8.jpg" alt="" class="img-raised" />
                   </div>
                 </div>
               </div>
@@ -90,12 +90,12 @@
               <div class="col-md-10 ml-auto mr-auto">
                 <div class="row collections">
                   <div class="col-md-6">
-                    <img src="img/bg1.jpg" alt="" class="img-raised" />
-                    <img src="img/bg3.jpg" alt="" class="img-raised" />
+                    <img src="assets/background/bg1.jpg" alt="" class="img-raised" />
+                    <img src="assets/background/bg3.jpg" alt="" class="img-raised" />
                   </div>
                   <div class="col-md-6">
-                    <img src="img/bg8.jpg" alt="" class="img-raised" />
-                    <img src="img/bg7.jpg" alt="" class="img-raised" />
+                    <img src="assets/background/bg8.jpg" alt="" class="img-raised" />
+                    <img src="assets/background/bg7.jpg" alt="" class="img-raised" />
                   </div>
                 </div>
               </div>
@@ -107,12 +107,12 @@
               <div class="col-md-10 ml-auto mr-auto">
                 <div class="row collections">
                   <div class="col-md-6">
-                    <img src="img/bg3.jpg" alt="" class="img-raised" />
-                    <img src="img/bg8.jpg" alt="" class="img-raised" />
+                    <img src="assets/background/bg3.jpg" alt="" class="img-raised" />
+                    <img src="assets/background/bg8.jpg" alt="" class="img-raised" />
                   </div>
                   <div class="col-md-6">
-                    <img src="img/bg7.jpg" alt="" class="img-raised" />
-                    <img src="img/bg6.jpg" class="img-raised" />
+                    <img src="assets/background/bg7.jpg" alt="" class="img-raised" />
+                    <img src="assets/background/bg6.jpg" class="img-raised" />
                   </div>
                 </div>
               </div>

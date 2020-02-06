@@ -109,12 +109,12 @@
         <div class="row">
           <div class="col-sm-2">
             <p class="category">Image</p>
-            <img v-lazy="'img/julie.jpg'" alt="Rounded Image" class="rounded" />
+            <img v-lazy="'assets/img/julie.jpg'" alt="Rounded Image" class="rounded" />
           </div>
           <div class="col-sm-2">
             <p class="category">Circle Image</p>
             <img
-              v-lazy="'img/julie.jpg'"
+              v-lazy="'assets/img/julie.jpg'"
               alt="Circle Image"
               class="rounded-circle"
             />
@@ -122,7 +122,7 @@
           <div class="col-sm-2">
             <p class="category">Raised</p>
             <img
-              v-lazy="'img/julie.jpg'"
+              v-lazy="'assets/img/julie.jpg'"
               alt="Raised Image"
               class="rounded img-raised"
             />
@@ -130,7 +130,7 @@
           <div class="col-sm-2">
             <p class="category">Circle Raised</p>
             <img
-              v-lazy="'img/julie.jpg'"
+              v-lazy="'assets/img/julie.jpg'"
               alt="Thumbnail Image"
               class="rounded-circle img-raised"
             />

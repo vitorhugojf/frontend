@@ -3,8 +3,8 @@
     <div class="page-header clear-filter" filter-color="black">
       <video-bg
         class="page-header-image"
-        :sources="['/assets/beach.mp4']"
-        img="/assets/beach_image.jpg"
+        :sources="['/assets/animated-background/beach.mp4']"
+        img="/assets/animated-background/beach_image.jpg"
       ></video-bg>
 
       <div class="container">
