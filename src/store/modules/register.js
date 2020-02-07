@@ -16,8 +16,8 @@ export default {
   mutations: {
     register(state) {
       userHttpService.post("register", state.signUpForm).then(data => {
-        localStorage.setItem("token", token);
-        state.auth.token = token;
+        localStorage.setItem("token", data.data.token);
+        state.auth.token = data.data.token;
         router.push("profile");
         vue.$toast.success(`Bem vindo !`);
       });
