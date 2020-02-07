@@ -16,7 +16,6 @@
               target="_blank"
             >
               <i class="fab fa-twitter"></i>
-              <p class="d-lg-none d-xl-none">Twitter</p>
             </a>
           </li>
           <li>
@@ -28,7 +27,6 @@
               target="_blank"
             >
               <i class="fab fa-facebook-square"></i>
-              <p class="d-lg-none d-xl-none">Facebook</p>
             </a>
           </li>
           <li>
@@ -40,7 +38,6 @@
               target="_blank"
             >
               <i class="fab fa-instagram"></i>
-              <p class="d-lg-none d-xl-none">Instagram</p>
             </a>
           </li>
           <li>
