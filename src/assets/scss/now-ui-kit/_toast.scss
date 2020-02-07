@@ -33,6 +33,7 @@ $vt-font-family: "Lato", Helvetica, "Roboto", Arial, sans-serif !default;
 $vt-z-index: 9999 !default;
 
 .#{$vt-namespace}__toast {
+  border-radius: 0px !important;
   display: inline-flex;
   position: relative;
   max-height: $vt-toast-max-height;

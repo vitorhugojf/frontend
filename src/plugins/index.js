@@ -29,7 +29,7 @@ Vue.use(VueLazyload, {
 Vue.use(Vuelidate);
 Vue.use(VueTheMask);
 Vue.use(Toast, {
-  position: "top-center",
+  position: "top-right",
   transition: "Vue-Toastification__slideBlurred",
   filterBeforeCreate: (toast, toasts) => {
     if (toasts.filter(t => t.type === toast.type).length !== 0) {
