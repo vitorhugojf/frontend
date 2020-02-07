@@ -16,6 +16,7 @@
     "nouislider": "^11.1.0",
     "vue": "^2.6.6",
     "vue-axios": "^2.1.5",
+    "vue-full-loading": "^1.2.1",
     "vue-lazy-load": "^0.0.7",
     "vue-lazyload": "^1.2.6",
     "vue-router": "^3.0.2",

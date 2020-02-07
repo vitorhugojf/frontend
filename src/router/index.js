@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Store from "@/store";
+import store from "@/store";
 
 import AppHeader from "../layout/AppHeader.vue";
 import AppFooter from "../layout/AppFooter.vue";
@@ -86,7 +86,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const requireAuth = to.matched.some(record => record.meta.requireAuth);
   const guestOnly = to.matched.some(record => record.meta.guestOnly);
-  const loggedIn = Store.getters.isAuthenticated;
+  const loggedIn = store.getters.isAuthenticated;
 
   requireAuthRoutes(requireAuth, loggedIn, next);
   guestOnlyRoutes(guestOnly, loggedIn, next);

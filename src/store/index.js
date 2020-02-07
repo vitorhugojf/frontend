@@ -7,5 +7,6 @@ import register from "./modules/register";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  state: { showLoading: false },
   modules: { auth, register }
 });
