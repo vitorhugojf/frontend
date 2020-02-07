@@ -176,12 +176,3 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
-a {
-  cursor: pointer;
-}
-
-.card-footer {
-  margin-top: 20px;
-}
-</style>

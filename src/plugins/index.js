@@ -13,7 +13,6 @@ import "vue-toastification/dist/index.css";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "@/assets/scss/now-ui-kit.scss";
-import "@/assets/demo/demo.css";
 
 locale.use(lang);
 

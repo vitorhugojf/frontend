@@ -1,6 +1,6 @@
 import httpClient from "../../core/http-client";
 
-const accountHttpService = httpClient("Account");
+const accountHttpService = httpClient("auth");
 
 export default {
   state: { token: localStorage.getItem("token") },
