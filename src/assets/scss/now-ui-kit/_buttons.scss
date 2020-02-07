@@ -15,8 +15,8 @@
 
     
     &:disabled{
-        cursor: default;
-        background-color: rgb(75, 75, 75) !important;
+        cursor: no-drop;
+        background-color: $primary-button-color !important;
     }
     &:hover,
     &:active,

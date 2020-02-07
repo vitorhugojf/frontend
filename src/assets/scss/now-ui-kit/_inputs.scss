@@ -1,5 +1,9 @@
 @include form-control-placeholder($default-color, .8);
 
+.primary-text-color {
+    color: $primary-color !important;
+}
+
 .form-control {
     background-color: $transparent-bg;
     border: 1px solid $light-gray;
@@ -87,7 +91,7 @@
         position: absolute;
         right: 20px;
         top: 12px;
-        color: greenyellow;
+        color: $success-color;
         font-size: 11px;
     }
 
@@ -102,7 +106,7 @@
 .has-danger{
     &:after{
         content: "\ea53";
-        color: red;
+        color: $danger-states-color;
     }
 }
 

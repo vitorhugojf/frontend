@@ -4,17 +4,24 @@
     <div class="content">
       <div class="container">
         <div class="col-md-5 ml-auto mr-auto">
-          <card type="login" plain>
-            <div slot="header" class="logo-container">
-              <img v-lazy="'assets/img/now-logo.png'" alt />
+          <card v-show="!signUp" type="login" plain>
+            <div class="social-line text-center">
+              <a href class="btn btn-neutral btn-linkedin btn-icon btn-round">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href class="btn btn-neutral btn-google btn-lg btn-icon btn-round">
+                <i class="fab fa-google-plus"></i>
+              </a>
+              <a href class="btn btn-neutral btn-icon btn-round">
+                <i class="fab fa-windows"></i>
+              </a>
             </div>
-
+            <h6 class="card-title title-up text-center">&nbsp;</h6>
             <fg-input
               class="no-border input-lg"
               addon-left-icon="now-ui-icons users_circle-08"
               placeholder="Email..."
             ></fg-input>
-
             <fg-input
               class="no-border input-lg"
               addon-left-icon="now-ui-icons text_caps-small"
@@ -36,89 +43,71 @@
               </h6>
             </div>
           </card>
+          <card v-show="signUp" type="register" plain>
+            <div class="social-line text-center">
+              <a href class="btn btn-neutral btn-linkedin btn-icon btn-round">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href class="btn btn-neutral btn-google btn-lg btn-icon btn-round">
+                <i class="fab fa-google-plus"></i>
+              </a>
+              <a href class="btn btn-neutral btn-icon btn-round">
+                <i class="fab fa-windows"></i>
+              </a>
+            </div>
+            <form @submit.prevent="confirmRegister">
+              <h6 class="card-title title-up text-center">ou faça seu registro localmente</h6>
+              <fg-input
+                class="no-border input-lg"
+                :class=" $v.$store.state.register.signUpForm.email.$invalid ? 'has-danger' : 'has-success' "
+                addon-left-icon="now-ui-icons users_circle-08"
+                v-model.trim="$store.state.register.signUpForm.email"
+                placeholder="Email..."
+              ></fg-input>
+              <fg-input
+                class="no-border input-lg"
+                :class=" $v.$store.state.register.signUpForm.password.$invalid ? 'has-danger' : 'has-success' "
+                addon-left-icon="now-ui-icons text_caps-small"
+                v-model.trim="$store.state.register.signUpForm.password"
+                type="password"
+                placeholder="Senha..."
+              ></fg-input>
+              {{ $v.$store.state.register.signUpForm.password.invalid
+              }}
+              <fg-input
+                class="no-border input-lg"
+                :class=" $v.$store.state.register.signUpForm.confirmPassword.$invalid ? 'has-danger' : 'has-success' "
+                addon-left-icon="now-ui-icons text_caps-small"
+                v-model.trim="$store.state.register.signUpForm.confirmPassword"
+                type="password"
+                placeholder="Confirme sua senha..."
+              ></fg-input>
+              <div class="card-footer text-center">
+                <button
+                  class="btn btn-primary btn-round btn-lg btn-block"
+                  :disabled="this.$v.$invalid"
+                  @click="confirmRegister()"
+                >Registrar</button>
+              </div>
+            </form>
+            <div class="pull-left">
+              <h6>
+                <a class="link footer-link" type="primary" @click="cancelRegister()">Cancelar</a>
+              </h6>
+            </div>
+            <div class="pull-right">
+              <h6>
+                <router-link to="landing" class="link footer-link">Precisa de Ajuda?</router-link>
+              </h6>
+            </div>
+          </card>
         </div>
       </div>
     </div>
-    <modal :show.sync="signUp" headerClasses="justify-content-center" class="modal-black">
-      <h4 slot="header" class="card-title title-up">Se Registre com</h4>
-      <div class="social-line text-center">
-        <a href class="btn btn-neutral btn-linkedin btn-icon btn-round">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href class="btn btn-neutral btn-google btn-lg btn-icon btn-round">
-          <i class="fab fa-google-plus"></i>
-        </a>
-        <a href class="btn btn-neutral btn-icon btn-round">
-          <i class="fab fa-windows"></i>
-        </a>
-      </div>
-      <form @submit.prevent="confirmRegister">
-        <h6 class="card-title title-up text-center">ou faça seu registro localmente</h6>
-
-        <fg-input
-          class="no-border input-lg form-group"
-          :class=" $v.$store.state.register.signUpForm.firstName.$invalid ? 'has-danger' : 'has-success' "
-          addon-left-icon="now-ui-icons text_caps-small"
-          v-model.trim="$store.state.register.signUpForm.firstName"
-          placeholder="Nome..."
-        ></fg-input>
-        <fg-input
-          class="no-border input-lg"
-          :class=" $v.$store.state.register.signUpForm.lastName.$invalid ? 'has-danger' : 'has-success' "
-          addon-left-icon="now-ui-icons text_caps-small"
-          v-model.trim="$store.state.register.signUpForm.lastName"
-          placeholder="Sobrenome..."
-        ></fg-input>
-        <fg-input
-          class="no-border input-lg"
-          :class=" $v.$store.state.register.signUpForm.email.$invalid ? 'has-danger' : 'has-success' "
-          addon-left-icon="now-ui-icons text_caps-small"
-          v-model.trim="$store.state.register.signUpForm.email"
-          placeholder="Email..."
-        ></fg-input>
-        <fg-input
-          class="no-border input-lg"
-          :class=" $v.$store.state.register.signUpForm.confirmEmail.$invalid ? 'has-danger' : 'has-success' "
-          addon-left-icon="now-ui-icons text_caps-small"
-          v-model.trim="$store.state.register.signUpForm.confirmEmail"
-          placeholder="Confirme seu email..."
-        ></fg-input>
-        <fg-input
-          class="no-border input-lg"
-          :class=" $v.$store.state.register.signUpForm.password.$invalid ? 'has-danger' : 'has-success' "
-          addon-left-icon="now-ui-icons text_caps-small"
-          v-model.trim="$store.state.register.signUpForm.password"
-          type="password"
-          placeholder="Senha..."
-        ></fg-input>
-        {{ $v.$store.state.register.signUpForm.password.invalid
-        }}
-        <fg-input
-          class="no-border input-lg"
-          :class=" $v.$store.state.register.signUpForm.confirmPassword.$invalid ? 'has-danger' : 'has-success' "
-          addon-left-icon="now-ui-icons text_caps-small"
-          v-model.trim="$store.state.register.signUpForm.confirmPassword"
-          type="password"
-          placeholder="Confirme sua senha..."
-        ></fg-input>
-      </form>
-
-      <template slot="footer">
-        <n-button
-          class="btn btn-danger btn-round btn-lg btn-block"
-          @click="cancelRegister()"
-        >Cancelar</n-button>
-        <button
-          class="btn btn-success btn-round btn-lg btn-block"
-          @click="confirmRegister()"
-          :disabled="this.$v.$invalid"
-        >Confirmar</button>
-      </template>
-    </modal>
   </div>
 </template>
 <script>
-import { Card, Modal, Button, FormGroupInput } from "@/components";
+import { Card, Button, FormGroupInput } from "@/components";
 import { required, sameAs, email, minLength } from "vuelidate/lib/validators";
 
 export default {
@@ -126,7 +115,6 @@ export default {
   bodyClass: "login-page",
   components: {
     Card,
-    Modal,
     [Button.name]: Button,
     [FormGroupInput.name]: FormGroupInput
   },
@@ -138,10 +126,7 @@ export default {
       state: {
         register: {
           signUpForm: {
-            firstName: { required },
-            lastName: { required },
             email: { required, email },
-            confirmEmail: { required, sameAsEmail: sameAs("email") },
             password: { required, minLength: minLength(8) },
             confirmPassword: { required, sameAsPassword: sameAs("password") }
           }
@@ -166,9 +151,12 @@ export default {
       this.signUp = false;
     },
     confirmRegister() {
+      debugger;
       this.$v.$touch();
-      if (this.$v.$valid) {
+      if (!this.$v.$invalid) {
         //registra o usuário no back pega o token e then
+        this.$store.dispatch("clear_form");
+
         this.$router.push("profile");
       }
     },
