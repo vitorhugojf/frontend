@@ -1,4 +1,6 @@
 import httpClient from "../../core/http-client";
+import router from "../../router";
+import vue from "vue";
 
 const accountHttpService = httpClient("auth");
 
@@ -10,9 +12,13 @@ export default {
     }
   },
   mutations: {
-    auth_login(state, token) {
-      localStorage.setItem("token", "teste");
-      state.token = token;
+    auth_login(state, signInForm) {
+      accountHttpService.post("login", signInForm).then(data => {
+        localStorage.setItem("token", token);
+        state.token = token;
+        router.push("profile");
+        vue.$toast.success(`Bem vindo !`);
+      });
     },
     auth_logout(state) {
       localStorage.removeItem("token");
@@ -20,11 +26,8 @@ export default {
     }
   },
   actions: {
-    async auth_login({ commit }, payload) {
-      commit("auth_login", "teste");
-      //   await accountHttpService.post("Login", payload).then(data => {
-      //     commit('auth_login', data.data.token)
-      //   });
+    auth_login({ commit }, signInForm) {
+      commit("auth_login", signInForm);
     },
     auth_logout({ commit }) {
       commit("auth_logout");

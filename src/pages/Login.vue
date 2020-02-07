@@ -16,22 +16,28 @@
                 <i class="fab fa-windows"></i>
               </a>
             </div>
-            <h6 class="card-title title-up text-center">&nbsp;</h6>
-            <fg-input
-              class="no-border input-lg"
-              addon-left-icon="now-ui-icons users_circle-08"
-              placeholder="Email..."
-            ></fg-input>
-            <fg-input
-              class="no-border input-lg"
-              addon-left-icon="now-ui-icons text_caps-small"
-              type="password"
-              placeholder="Senha..."
-            ></fg-input>
+            <form @submit.prevent="signIn">
+              <h6 class="card-title title-up text-center">&nbsp;</h6>
+              <fg-input
+                class="no-border input-lg"
+                :class=" $v.signInForm.email.$invalid ? 'has-danger' : 'has-success' "
+                addon-left-icon="now-ui-icons users_circle-08"
+                v-model="signInForm.email"
+                placeholder="Email..."
+              ></fg-input>
+              <fg-input
+                class="no-border input-lg"
+                :class=" $v.signInForm.password.$invalid ? 'has-danger' : 'has-success' "
+                addon-left-icon="now-ui-icons text_caps-small"
+                type="password"
+                v-model="signInForm.password"
+                placeholder="Senha..."
+              ></fg-input>
 
-            <div class="card-footer text-center">
-              <a class="btn btn-primary btn-round btn-lg btn-block" @click="signIn()">Entrar</a>
-            </div>
+              <div class="card-footer text-center">
+                <a class="btn btn-primary btn-round btn-lg btn-block" @click="signIn()">Entrar</a>
+              </div>
+            </form>
             <div class="pull-left">
               <h6>
                 <a class="link footer-link" type="primary" @click="signUp = true">Se Registre</a>
@@ -119,6 +125,10 @@ export default {
     [FormGroupInput.name]: FormGroupInput
   },
   data: () => ({
+    signInForm: {
+      email: "",
+      password: ""
+    },
     signUp: false
   }),
   validations: {
@@ -132,32 +142,24 @@ export default {
           }
         }
       }
+    },
+    signInForm: {
+      email: { required, email },
+      password: { required, minLength: minLength(8) }
     }
   },
   methods: {
     signIn() {
-      var random = Math.random() >= 0.5;
-      if (random) {
-        this.$store.dispatch("auth_login", this.objLogin).then(() => {
-          this.$toast.success(`Bem vindo !`);
-          this.$router.push("profile");
-        });
-      } else {
-        this.$toast.error(`Erro ao efetuar o login !`);
-      }
+      this.$store.dispatch("auth_login", this.signInForm);
     },
     cancelRegister() {
       this.$store.dispatch("clear_form");
       this.signUp = false;
     },
     confirmRegister() {
-      debugger;
       this.$v.$touch();
       if (!this.$v.$invalid) {
-        //registra o usuário no back pega o token e then
-        this.$store.dispatch("clear_form");
-
-        this.$router.push("profile");
+        this.$store.dispatch("register");
       }
     },
     clearForm() {}
